@@ -10,6 +10,7 @@ get '/' do
 end
 
 get '/about' do 
+	
 	erb :about
 end
 
@@ -24,6 +25,11 @@ post '/visit' do
 	@ccc = params[:time]
 	@ddd = params[:barber]
 	@eee = params[:color]
+
+	if @aaa == ''
+		@error = 'Введите имя'
+		return erb :visit
+	end
 
 	erb "OK!, username is #{@username}, #{@phone}, #{@time}, #{@barber}, #{@color}"
 
