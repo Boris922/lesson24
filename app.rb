@@ -43,7 +43,7 @@ post '/visit' do
 			#вернуть представление visit
 			return erb :visit
 		end
-		
+
 	end
 
 	erb "OK!, username is #{@aaa}, #{@bbb}, #{@ccc}, #{@ddd}, #{@eee}"
