@@ -28,7 +28,7 @@ post '/visit' do
 
 	if @aaa == ''
 		@error = 'Введите имя'
-		return erb :visit
+		return  erb  :visit
 	end
 
 	erb "OK!, username is #{@username}, #{@phone}, #{@time}, #{@barber}, #{@color}"
