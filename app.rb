@@ -29,22 +29,33 @@ post '/visit' do
 	hh = {:username => 'Введите имя', :phone => 'Введите телефон', :time => 'Введите время', 
 		:barber => "Введите парикмахера", :color => "Введите цвет"}
 
-		#Для каждой пары ключ, значение
+	# 	#Для каждой пары ключ, значение
 		
-	hh.each do |key, value|
+	# hh.each do |key, value|
 
-		# Если параметр пуст
+	# 	# Если параметр пуст
 
-		if params[key] == ''
+	# 	if params[key] == ''
 
-			# переменой eerror присвоить value из хеша hh
-			# (a value из хеша hh это сообщение об ошибке)
-			@error = hh[key]
-			#вернуть представление visit
-			return erb :visit
-		end
+	# 		# переменой eerror присвоить value из хеша hh
+	# 		# (a value из хеша hh это сообщение об ошибке)
+	# 		@error = hh[key]
+	# 		#вернуть представление visit
+	# 		return erb :visit
+	# 	end
 
+	# end
+	
+
+	# Немного другой вариант
+	
+	@eror = hh.select {|key,_| params[key] == ""}.values.join(", ")
+
+	if @error != ''
+		return erb :visit 
 	end
+
+
 
 	erb "OK!, username is #{@aaa}, #{@bbb}, #{@ccc}, #{@ddd}, #{@eee}"
 
